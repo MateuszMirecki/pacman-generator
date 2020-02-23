@@ -1,0 +1,45 @@
+.square{
+    height: 20px;
+    width: 20px;
+    border: 1px solid purple;
+    margin:1px;
+    float: left; 
+}
+
+
+.square:nth-child(16n+1){
+    clear:both;
+}
+
+.empty{
+    height: 20px;
+    width: 20px;
+    margin:1px;
+    border: 1px solid red;
+    float: left;
+}
+
+.empty:nth-child(16n+1){
+    clear:both;
+}
+
+
+.prawa{
+    width:auto;
+    float: left;
+    margin: 20px;
+}
+.lewa{
+    width:auto;
+    float: left;
+    margin: 20px;
+}
+
+
+canvas:hover{
+    border:1px dotted blue;
+}
+
+.zaznaczony{
+    border: 3px double green;
+}

@@ -39,7 +39,6 @@ class Square{
             }
             console.log('oo',this.is_ctl,'oo');
         }
-    
 
         cutImageUp() {
            // sprobowac zrobic lepiej z modulo
@@ -58,21 +57,14 @@ class Square{
                            console.log('aaaaa')
 
                            let els=document.getElementsByClassName("zaznaczony");
-
-
-                            //add_class
                             
                             for(let i=0; i<els.length; i++){
                                 var ctx=els[i].getContext("2d");
                                 ctx.drawImage(e.target,0,0,this.size,this.size,0,0,this.size,this.size);
                         }
-
-                            //remove_class
                             for(let i=els.length-1; i>=0; i--){
                                 els[i].classList.remove("zaznaczony");
                             }
-
-                           
                            
                         }
                         var context = canvas.getContext('2d');
@@ -92,50 +84,30 @@ class Square{
                         canvas.width = this.size;
                         canvas.height = this.size;
                         canvas.classList.add('square')
+
                         canvas.onclick = (e) => {
-
-
-                            let els=document.getElementsByClassName("zaznaczony");
-
-
-                            //add_class
-                            
+                        let els=document.getElementsByClassName("zaznaczony");
                             for(let i=0; i<els.length; i++){
                                 var ctx=els[i].getContext("2d");
                                 ctx.drawImage(e.target,0,0,this.size,this.size,0,0,this.size,this.size);
                         }
-                        
-                            //remove_class
                             for(let i=els.length-1; i>=0; i--){
                                 els[i].classList.remove("zaznaczony");
-                            }
-
-                            
-                           
+                            }           
                         }
                         var context = canvas.getContext('2d');
 
                         context.drawImage(this.img,  y*this.size, x * this.size, this.size, this.size, 0, 0, this.size, this.size);
                         
                         this.cont_left.appendChild(canvas)
-                        
-                   }
-               
-                     
+                       }         
                 }  
-                
-                
-
                 if(x==19 && i < 1){
-                  
                     j++
                     x=0  
                     i++
                 }
-          
-            }
-     
-        
+            }        
         }
     
         PlaceToPaste() {
@@ -147,16 +119,10 @@ class Square{
                     empty.width = this.size;
                     empty.height = this.size;
                     empty.id = `${x+100}_${y+100}`
-                    empty.classList.add('empty')
-                    //empty.onclick=this.dodaj_klase_zaznaczenia;
-                    
-                    empty.addEventListener('click',(e) => {this.dodaj_klase_zaznaczenia(this,e)},true);
-                    
-                    
-                    
+                    empty.classList.add('empty')                  
+                    empty.addEventListener('click',(e) => {this.dodaj_klase_zaznaczenia(this,e)},true);                 
                     this.cont_right.appendChild(empty)
-    
-                   
+                  
                 }
              
             }
@@ -164,50 +130,24 @@ class Square{
         }
     
         dodaj_klase_zaznaczenia(dis,e){
-            // console.log(dis, e.target);
-            // console.log(this.dis);
 
-            console.log(dis.is_ctl)
-           //console.log(dis.ctl)
             if (dis.is_ctl == false){
                 for(var x = 0; x < 20; ++x) {
                     for(var y = 0; y < 32; ++y) {
-                        // console.log(`${x+100}_${y+100}`)
                         let a = document.getElementById(`${x+100}_${y+100}`)
                         a.classList.remove('zaznaczony')
-                        
-                       
                     }
-                 
                 }
             }
- 
-
             e.target.classList.add("zaznaczony")
-        }
-    
-    
-    
-    
-    
-    
+        }    
     }
     window.addEventListener('DOMContentLoaded', (event) => {
-    
-      
-    
-    
-    
+        
         var image = new Image();
         image.onload = function(){
             new Square(this,12)
         };
         image.src ='images/sprites2.png';
-    
-
-    
-    
-    
-    
-    
+  
     });
